@@ -1,0 +1,18 @@
+<svg width="509" height="301" viewBox="0 0 509 301" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft dome "stage" behind the phone -->
+  <path d="M60 301 L60 170 C60 74 140 40 254.5 40 C369 40 449 74 449 170 L449 301 Z" fill="#F6C7B2"/>
+  <!-- Inner detail arc -->
+  <path d="M92 301 L92 182 C92 104 158 74 254.5 74 C351 74 417 104 417 182 L417 301" stroke="#E8AF97" stroke-width="1.5"/>
+  <!-- Dot grid, bottom-left -->
+  <g fill="#0F86A1" opacity="0.4">
+    <circle cx="16" cy="229" r="2"/><circle cx="32" cy="229" r="2"/><circle cx="48" cy="229" r="2"/><circle cx="64" cy="229" r="2"/><circle cx="80" cy="229" r="2"/>
+    <circle cx="16" cy="245" r="2"/><circle cx="32" cy="245" r="2"/><circle cx="48" cy="245" r="2"/><circle cx="64" cy="245" r="2"/><circle cx="80" cy="245" r="2"/>
+    <circle cx="16" cy="261" r="2"/><circle cx="32" cy="261" r="2"/><circle cx="48" cy="261" r="2"/><circle cx="64" cy="261" r="2"/><circle cx="80" cy="261" r="2"/>
+    <circle cx="16" cy="277" r="2"/><circle cx="32" cy="277" r="2"/><circle cx="48" cy="277" r="2"/><circle cx="64" cy="277" r="2"/><circle cx="80" cy="277" r="2"/>
+  </g>
+  <!-- Ring accent, top-right -->
+  <circle cx="446" cy="52" r="24" stroke="#0F86A1" stroke-width="2"/>
+  <!-- Solid dot accent, bottom-right -->
+  <circle cx="472" cy="248" r="5" fill="#58C4DC"/>
+  <circle cx="452" cy="270" r="3" fill="#0F86A1" opacity="0.5"/>
+</svg>
