@@ -1,4 +1,13 @@
-export async function CopyrightYear() {
-  "use cache";
-  return new Date().getFullYear();
+"use client";
+
+import { useEffect, useState } from "react";
+
+export function CopyrightYear() {
+  const [year, setYear] = useState(2026);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
+  return <>{year}</>;
 }

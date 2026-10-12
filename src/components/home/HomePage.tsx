@@ -6,6 +6,9 @@ import { Star } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import { ServiceExplorer } from "@/components/sections/ServiceExplorer";
 import { ConsultingShowcase } from "@/components/sections/ConsultingShowcase";
+import { SynVaelCoreFocus } from "@/components/sections/SynVaelCoreFocus";
+import { SynVaelAiDivision } from "@/components/sections/SynVaelAiDivision";
+import { SynVaelProductsSuite } from "@/components/sections/SynVaelProductsSuite";
 
 const partners = [
   { name: "Ride Ethiopia", tag: "Mobility & Transport", logo: "/images/logos/ride-ethiopia.png" },
@@ -247,6 +250,9 @@ export function HomePage() {
         </div>
       </motion.section>
 
+      {/* SynVael Core Focus: 1) AI Model Building / Private AI Model Training, 2) Custom Software Building */}
+      <SynVaelCoreFocus />
+
       {/* What We Do Section */}
       <motion.section
         initial="hidden"
@@ -457,6 +463,9 @@ export function HomePage() {
         </div>
       </motion.section>
 
+      {/* SynVael AI Sub-Company: Products Built by SynVael AI (Digital Human Holograms, AI Business OS) */}
+      <SynVaelAiDivision />
+
       {/* Headline Stats Banner */}
       <motion.section
         initial="hidden"
@@ -494,6 +503,9 @@ export function HomePage() {
       </motion.section>
 
       <ServiceExplorer />
+
+      {/* SynVael Products Suite: Many Products Built by SynVael */}
+      <SynVaelProductsSuite />
 
       {/* Ready to Build / Sectors Showcase Section */}
       <motion.section
