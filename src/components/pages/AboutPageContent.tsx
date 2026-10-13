@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Clock,
@@ -6,7 +8,7 @@ import {
   Monitor,
   Quote,
   Shield,
-  Sparkles,
+  Lightbulb,
   Star,
   Users,
 } from "lucide-react";
@@ -21,12 +23,13 @@ import {
   StatHighlight,
   TealMetricsBand,
 } from "@/components/pages/primitives";
+import { motion } from "framer-motion";
 
 const values = [
   { icon: Shield, title: "Integrity", desc: "We say what we mean, document decisions, and keep commitments visible to clients and teammates." },
   { icon: Star, title: "Excellence", desc: "Quality is a habit — reviews, testing, and polish are part of delivery, not an afterthought." },
   { icon: Users, title: "Collaboration", desc: "We work as an extension of your team with shared context and open communication." },
-  { icon: Sparkles, title: "Clarity", desc: "Complex systems stay understandable through thoughtful structure and plain language." },
+  { icon: Lightbulb, title: "Clarity", desc: "Complex systems stay understandable through thoughtful structure and plain language." },
   { icon: Monitor, title: "Craft", desc: "We care about the details users feel every day — performance, accessibility, and maintainability." },
   { icon: Globe2, title: "Partnership", desc: "Long-term relationships matter more than one-off launches. We optimize for support after go-live." },
 ];
@@ -49,7 +52,13 @@ export function AboutPageContent() {
         location="Headquartered in Bole, Addis Ababa"
       />
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <PastelCard tone="sand" kicker="Engineering DNA" title="We craft systems that outlast industry shifts.">
             <p className="text-sm leading-relaxed text-[var(--ink-muted)]">
@@ -69,9 +78,15 @@ export function AboutPageContent() {
             <p className="yanol-about-orbit-label">Designers · Engineers · Operators</p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container yanol-stat-grid">
           <StatHighlight
             tone="sand"
@@ -98,9 +113,15 @@ export function AboutPageContent() {
             description="Clients retain full ownership of deliverables, documentation, and deployment assets."
           />
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section yanol-section-soft">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section yanol-section-soft"
+      >
         <div className="yanol-container grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeading kicker="About SynVael" title="Engineering AI and software that scale." />
@@ -118,9 +139,15 @@ export function AboutPageContent() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container yanol-feature-grid">
           <FeatureCard
             icon={Clock}
@@ -138,9 +165,15 @@ export function AboutPageContent() {
             description="We stay engaged after launch with maintenance, iteration, and roadmap support as your needs evolve."
           />
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section"
+      >
         <div className="yanol-container space-y-8">
           <SectionHeading
             title="Mission & Vision"
@@ -171,9 +204,15 @@ export function AboutPageContent() {
             </p>
           </PastelCard>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section yanol-section-soft">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section yanol-section-soft"
+      >
         <div className="yanol-container space-y-10">
           <SectionHeading
             title="What Guides the Work"
@@ -191,9 +230,15 @@ export function AboutPageContent() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section"
+      >
         <div className="yanol-container grid gap-12 lg:grid-cols-2">
           <SectionHeading title="How We Got Here" description="Each phase added range, but the way we work stayed grounded: ship something useful, then make it easier to support. The current focus is building durable systems, improving client handoffs, and making sure every release is easier to support than the last." />
           <ol className="yanol-timeline">
@@ -211,7 +256,7 @@ export function AboutPageContent() {
             ))}
           </ol>
         </div>
-      </section>
+      </motion.section>
 
       <TealMetricsBand
         title="Numbers That Hold Up"
@@ -224,7 +269,13 @@ export function AboutPageContent() {
         ]}
       />
 
-      <section className="yanol-section">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section"
+      >
         <div className="yanol-container space-y-8">
           <SectionHeading
             title="How the Team Works"
@@ -264,7 +315,7 @@ export function AboutPageContent() {
             </Link>
           </p>
         </div>
-      </section>
+      </motion.section>
 
       <ConnectCta />
     </SiteShell>

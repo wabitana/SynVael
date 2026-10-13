@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Sparkles, ArrowRight, Bot, Cpu, ShieldCheck, Code2, MessageSquareCode, Layers } from "lucide-react";
+import { ArrowRight, Bot, Cpu, ShieldCheck, Code2, MessageSquareCode, Layers } from "lucide-react";
 import { synVaelProducts } from "@/lib/site";
 import { motion, type Variants } from "framer-motion";
 
@@ -12,7 +12,13 @@ const fadeUp: Variants = {
 
 export function SynVaelProductsSuite() {
   return (
-    <section className="w-full py-16 sm:py-24 bg-[#f4efe6] border-t border-b border-black/5">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full py-16 sm:py-24 bg-[#f4efe6] border-t border-b border-black/5"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
           <div>
@@ -93,6 +99,6 @@ export function SynVaelProductsSuite() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

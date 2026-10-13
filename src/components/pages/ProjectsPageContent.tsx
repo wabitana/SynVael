@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { FolderKanban } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ConnectCta, PageIntro, PastelCard, TealMetricsBand } from "@/components/pages/primitives";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -52,7 +55,13 @@ export function ProjectsPageContent() {
         description="Real-world systems we build to streamline operations, improve visibility, and scale businesses — from first release through years of iteration."
       />
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <PastelCard key={p.title} tone={p.tone}>
@@ -70,7 +79,7 @@ export function ProjectsPageContent() {
             </PastelCard>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       <TealMetricsBand
         title="Delivered across sectors"

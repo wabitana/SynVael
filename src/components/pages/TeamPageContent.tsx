@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { Users } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ConnectCta, PageIntro, PastelCard } from "@/components/pages/primitives";
 import { TeamDirectory, TeamHeroAside } from "@/components/pages/TeamDirectory";
+import { motion } from "framer-motion";
 
 export function TeamPageContent() {
   return (
@@ -17,7 +20,13 @@ export function TeamPageContent() {
 
       <TeamDirectory />
 
-      <section className="yanol-section">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section"
+      >
         <div className="yanol-container">
           <PastelCard tone="peach" className="yanol-team-cta relative text-center">
             <span className="yanol-team-cta-arrow" aria-hidden />
@@ -31,7 +40,7 @@ export function TeamPageContent() {
             </Link>
           </PastelCard>
         </div>
-      </section>
+      </motion.section>
 
       <ConnectCta buttonLabel="Start a conversation" href="/contact" />
     </SiteShell>

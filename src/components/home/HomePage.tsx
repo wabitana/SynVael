@@ -9,6 +9,7 @@ import { ConsultingShowcase } from "@/components/sections/ConsultingShowcase";
 import { SynVaelCoreFocus } from "@/components/sections/SynVaelCoreFocus";
 import { SynVaelAiDivision } from "@/components/sections/SynVaelAiDivision";
 import { SynVaelProductsSuite } from "@/components/sections/SynVaelProductsSuite";
+import { StackedCardsSection } from "@/components/sections/StackedCardsSection";
 
 const partners = [
   { name: "Ride Ethiopia", tag: "Mobility & Transport", logo: "/images/logos/ride-ethiopia.png" },
@@ -503,6 +504,7 @@ export function HomePage() {
       </motion.section>
 
       <ServiceExplorer />
+      <StackedCardsSection />
 
       {/* SynVael Products Suite: Many Products Built by SynVael */}
       <SynVaelProductsSuite />

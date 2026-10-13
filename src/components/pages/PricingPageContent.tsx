@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Check, Tag } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ConnectCta, PageIntro, PastelCard, SectionHeading } from "@/components/pages/primitives";
+import { motion } from "framer-motion";
 
 const tiers = [
   {
@@ -41,7 +44,13 @@ export function PricingPageContent() {
         description="Every organization is different. We offer clear packages for discovery, delivery, and long-term support — with transparent milestones and no surprise scope."
       />
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container grid gap-6 lg:grid-cols-3">
           {tiers.map((t) => (
             <PastelCard
@@ -66,9 +75,15 @@ export function PricingPageContent() {
             </PastelCard>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section yanol-section-soft">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section yanol-section-soft"
+      >
         <div className="yanol-container">
           <SectionHeading
             title="Custom estimates"
@@ -76,7 +91,7 @@ export function PricingPageContent() {
             align="center"
           />
         </div>
-      </section>
+      </motion.section>
 
       <ConnectCta buttonLabel="Request a quote" />
     </SiteShell>

@@ -123,7 +123,13 @@ export function ServiceExplorer() {
   const activeService = servicesData[activeIdx];
 
   return (
-    <section className="w-full py-16 md:py-24 bg-[#f7f3ee]">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full py-16 md:py-24 bg-[#f7f3ee]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Tag Pill */}
         <div className="mb-4">
@@ -263,6 +269,6 @@ export function ServiceExplorer() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

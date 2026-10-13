@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Newspaper } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ConnectCta, PageIntro, PastelCard } from "@/components/pages/primitives";
+import { motion } from "framer-motion";
 
 const posts = [
   {
@@ -34,7 +37,13 @@ export function BlogPageContent() {
         description="Practical notes from delivery — architecture, UX, and operations for teams building serious systems."
       />
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container grid gap-6 md:grid-cols-3">
           {posts.map((post) => (
             <PastelCard key={post.title} tone="cream">
@@ -56,7 +65,7 @@ export function BlogPageContent() {
           </Link>
           .
         </p>
-      </section>
+      </motion.section>
 
       <ConnectCta
         title="Rather talk than read?"

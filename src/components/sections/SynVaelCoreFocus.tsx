@@ -12,7 +12,13 @@ const fadeUp: Variants = {
 
 export function SynVaelCoreFocus() {
   return (
-    <section className="w-full py-16 sm:py-24 bg-[#fbf9f5] border-b border-black/5">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full py-16 sm:py-24 bg-[#fbf9f5] border-b border-black/5"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
@@ -144,6 +150,6 @@ export function SynVaelCoreFocus() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

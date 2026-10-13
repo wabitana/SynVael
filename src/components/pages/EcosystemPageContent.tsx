@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Network, HeartPulse, GraduationCap, ShoppingBag, Plane, Building2 } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ConnectCta, PageIntro, PastelCard, SectionHeading } from "@/components/pages/primitives";
+import { motion } from "framer-motion";
 
 const sectors = [
   {
@@ -46,7 +49,13 @@ export function EcosystemPageContent() {
         description="SynVael builds sector-specific AI platforms and custom software that share a common engineering foundation — so you can launch faster without reinventing infrastructure each time."
       />
 
-      <section className="yanol-section pt-0">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section pt-0"
+      >
         <div className="yanol-container yanol-stat-grid">
           <PastelCard tone="sky" kicker="Connected stack" title="One delivery standard across industries">
             <p className="text-sm text-[var(--ink-muted)]">
@@ -72,9 +81,15 @@ export function EcosystemPageContent() {
             </p>
           </PastelCard>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="yanol-section yanol-section-soft">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="yanol-section yanol-section-soft"
+      >
         <div className="yanol-container space-y-10">
           <SectionHeading
             kicker="Sectors"
@@ -102,7 +117,7 @@ export function EcosystemPageContent() {
             .
           </p>
         </div>
-      </section>
+      </motion.section>
 
       <ConnectCta
         title="Map your ecosystem"

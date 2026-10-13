@@ -2,9 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import {
-  Sparkles,
   Bot,
   Cpu,
   ShieldCheck,
@@ -12,30 +10,27 @@ import {
   MessageSquareCode,
   ArrowRight,
   CheckCircle2,
-  Terminal,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { synVaelProducts } from "@/lib/site";
+import { StackedCardsSection } from "@/components/sections/StackedCardsSection";
 
 export function ProductsPageContent() {
-  const [activeSimulatorTab, setActiveSimulatorTab] = useState<"ceo" | "cto" | "hologram">("hologram");
-
   return (
     <SiteShell>
       <div className="bg-[#f7f3ee]">
         {/* Products Page Hero */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-[#102738] via-[#0c1f2e] to-[#07131d] text-white pt-28 pb-20 lg:pt-36 lg:pb-28 border-b border-cyan-500/20">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/25 via-transparent to-transparent pointer-events-none" />
-          
+        <motion.section
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative overflow-hidden bg-[#102738] text-white pt-28 pb-20 lg:pt-36 lg:pb-28 border-b border-black/10"
+        >
           <div className="yanol-container relative z-10 text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 px-4 py-1.5 text-xs font-mono font-bold text-cyan-300 uppercase tracking-widest mb-6">
-              <Sparkles className="h-3.5 w-3.5" />
-              SYNVAEL AI · SUB-COMPANY OF SYNVAEL
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white font-sans leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-sans leading-tight">
               AI Products Built by SynVael — <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-[#f4c4a8] bg-clip-text text-transparent">
+              <span className="text-[#f4c4a8]">
                 Running The Autonomous Enterprise
               </span>
             </h1>
@@ -47,32 +42,37 @@ export function ProductsPageContent() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="#holopresence"
-                className="inline-flex items-center gap-2 rounded-full bg-cyan-400 hover:bg-cyan-300 px-8 py-3.5 text-xs font-black uppercase tracking-wider text-black transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#f4c4a8] hover:bg-[#ebd5c8] px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-[#1a1f2e] transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
                 <span>Explore AI Holograms</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="#execuos"
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-8 py-3.5 text-xs font-black uppercase tracking-wider text-white border border-white/20 transition-all backdrop-blur-xs"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white border border-white/20 transition-all hover:-translate-y-0.5"
               >
                 <span>AI Business OS</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
-        </section>
+        </motion.section>
+
+        {/* Stack on Top Animated Section (5 Stacked Sections with 4 Sub-Animated Sections) */}
+        <StackedCardsSection />
 
         {/* Product 1: HoloPresence (AI Digital Human Interactive Hologram) */}
-        <section id="holopresence" className="py-20 lg:py-28 border-b border-black/5 bg-[#f8f5ee]">
+        <motion.section
+          id="holopresence"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-20 lg:py-28 border-b border-black/5 bg-[#f8f5ee]"
+        >
           <div className="yanol-container">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#0f86a1]/10 text-[#0f86a1] px-3.5 py-1 text-xs font-extrabold uppercase tracking-widest border border-[#0f86a1]/20">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  FLAGSHIP PRODUCT 01
-                </div>
-
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a1f2e] tracking-tight">
                   SynVael HoloPresence™ <br />
                   <span className="text-[#0f86a1]">AI Digital Human Interactive Holograms</span>
@@ -117,7 +117,7 @@ export function ProductsPageContent() {
               </div>
 
               <div className="lg:col-span-6">
-                <div className="relative rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-black aspect-video sm:aspect-[4/3]">
+                <div className="relative rounded-3xl overflow-hidden border border-black/8 shadow-md aspect-video sm:aspect-[4/3] bg-slate-100">
                   <Image
                     src="/images/ai-digital-human-hologram.jpg"
                     alt="SynVael AI Digital Human Interactive Hologram"
@@ -125,49 +125,53 @@ export function ProductsPageContent() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between p-4 rounded-2xl bg-black/75 backdrop-blur-md border border-cyan-400/30 text-white">
+                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-black/5 text-[#1a1f2e] shadow-lg">
                     <div>
-                      <p className="text-xs font-mono font-bold text-cyan-300">LIVE PREVIEW: HOLOPRESENCE™ ENGINE</p>
-                      <p className="text-sm font-bold">Interactive 3D Holographic Persona</p>
+                      <p className="text-xs font-bold text-[#1a1f2e]">HoloPresence™ Spatial Engine</p>
+                      <p className="text-xs text-[#556070]">Interactive 3D Holographic Persona</p>
                     </div>
-                    <span className="flex h-3 w-3 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-wider border border-emerald-200">
+                      Active
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Product 2: ExecuOS (AI Business Operating System - AI CEO & AI CTO) */}
-        <section id="execuos" className="py-20 lg:py-28 border-b border-black/5 bg-[#f0ece5]">
+        <motion.section
+          id="execuos"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-20 lg:py-28 border-b border-black/5 bg-[#f0ece5]"
+        >
           <div className="yanol-container">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 order-2 lg:order-1">
-                <div className="relative rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl bg-black aspect-video sm:aspect-[4/3]">
+                <div className="relative rounded-3xl overflow-hidden border border-black/8 shadow-md aspect-video sm:aspect-[4/3] bg-slate-100">
                   <Image
                     src="/images/ai-autonomous-business-os.jpg"
                     alt="SynVael AI ExecuOS Autonomous Business Operating System"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between p-4 rounded-2xl bg-black/75 backdrop-blur-md border border-amber-400/30 text-white">
+                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-black/5 text-[#1a1f2e] shadow-lg">
                     <div>
-                      <p className="text-xs font-mono font-bold text-amber-300">EXECUTIVE AI HIERARCHY ACTIVE</p>
-                      <p className="text-sm font-bold">AI CEO (Aurora-7) · AI CTO (Nexus-9)</p>
+                      <p className="text-xs font-bold text-[#1a1f2e]">ExecuOS™ Executive Swarm</p>
+                      <p className="text-xs text-[#556070]">Autonomous AI CEO &amp; CTO Orchestration</p>
                     </div>
-                    <span className="flex h-3 w-3 rounded-full bg-cyan-400 animate-ping" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 text-[10px] font-bold uppercase tracking-wider border border-amber-200">
+                      Active
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 text-amber-800 px-3.5 py-1 text-xs font-extrabold uppercase tracking-widest border border-amber-500/20">
-                  <Bot className="h-3.5 w-3.5" />
-                  FLAGSHIP PRODUCT 02
-                </div>
-
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a1f2e] tracking-tight">
                   SynVael ExecuOS™ <br />
                   <span className="text-[#0f86a1]">AI Business Operating System</span>
@@ -204,7 +208,7 @@ export function ProductsPageContent() {
 
                   <div className="p-4 rounded-2xl bg-white border border-black/5 flex items-start gap-3">
                     <div className="h-7 w-7 rounded-lg bg-cyan-100 text-cyan-800 flex items-center justify-center shrink-0 font-bold text-xs">
-                      ✨
+                      👤
                     </div>
                     <div>
                       <p className="text-sm font-bold text-[#1a1f2e]">Holographic Executive Persona Projection</p>
@@ -227,18 +231,20 @@ export function ProductsPageContent() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Product 3: VaultModel (Private AI Model Foundry) */}
-        <section id="vaultmodel" className="py-20 lg:py-28 border-b border-black/5 bg-[#f8f5ee]">
+        <motion.section
+          id="vaultmodel"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-20 lg:py-28 border-b border-black/5 bg-[#f8f5ee]"
+        >
           <div className="yanol-container">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 text-emerald-800 px-3.5 py-1 text-xs font-extrabold uppercase tracking-widest border border-emerald-500/20">
-                  <ShieldCheck className="h-3.5 w-3.5" />
-                  FLAGSHIP PRODUCT 03
-                </div>
-
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a1f2e] tracking-tight">
                   SynVael VaultModel™ <br />
                   <span className="text-[#0f86a1]">Private AI Model Building &amp; Training</span>
@@ -286,29 +292,36 @@ export function ProductsPageContent() {
               </div>
 
               <div className="lg:col-span-6">
-                <div className="relative rounded-3xl overflow-hidden border border-emerald-500/30 shadow-2xl bg-black aspect-video sm:aspect-[4/3]">
+                <div className="relative rounded-3xl overflow-hidden border border-black/8 shadow-md aspect-video sm:aspect-[4/3] bg-slate-100">
                   <Image
                     src="/images/private-ai-model-building.jpg"
                     alt="SynVael VaultModel Private AI Model Training Facility"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between p-4 rounded-2xl bg-black/75 backdrop-blur-md border border-emerald-400/30 text-white">
+                  <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-black/5 text-[#1a1f2e] shadow-lg">
                     <div>
-                      <p className="text-xs font-mono font-bold text-emerald-300">AIR-GAPPED NEURAL FOUNDRY</p>
-                      <p className="text-sm font-bold">100% Private Training Cluster</p>
+                      <p className="text-xs font-bold text-[#1a1f2e]">VaultModel™ Neural Foundry</p>
+                      <p className="text-xs text-[#556070]">Air-gapped private cluster with zero telemetry</p>
                     </div>
-                    <span className="flex h-3 w-3 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-wider border border-emerald-200">
+                      Secure
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Complete Products Catalog Grid */}
-        <section className="py-20 lg:py-28 bg-[#f5f0e6] border-b border-black/5">
+        <motion.section
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-20 lg:py-28 bg-[#f5f0e6] border-b border-black/5"
+        >
           <div className="yanol-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#0f86a1] mb-2 block">
@@ -323,9 +336,13 @@ export function ProductsPageContent() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {synVaelProducts.map((p) => (
-                <div
+              {synVaelProducts.map((p, idx) => (
+                <motion.div
                   key={p.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: idx * 0.05 }}
                   className="flex flex-col justify-between rounded-3xl bg-white p-8 border border-black/6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
                   <div>
@@ -373,14 +390,20 @@ export function ProductsPageContent() {
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Bottom CTA Banner */}
-        <section className="py-20 bg-gradient-to-r from-[#2d8a9a] via-[#3a95a5] to-[#7eb8c9] text-white text-center">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-20 bg-gradient-to-r from-[#2d8a9a] via-[#3a95a5] to-[#7eb8c9] text-white text-center"
+        >
           <div className="yanol-container max-w-3xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               Ready to deploy SynVael AI products into your business?
@@ -397,7 +420,7 @@ export function ProductsPageContent() {
               </Link>
             </div>
           </div>
-        </section>
+        </motion.section>
       </div>
     </SiteShell>
   );

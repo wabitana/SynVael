@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function PageIntro({
   icon: Icon,
@@ -18,7 +21,12 @@ export function PageIntro({
   location?: string;
 }) {
   return (
-    <section className="yanol-page-hero">
+    <motion.section
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="yanol-page-hero"
+    >
       <div className="yanol-container yanol-page-hero-grid">
         <div>
           <p className="yanol-page-label">
@@ -38,7 +46,7 @@ export function PageIntro({
           {aside}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -55,11 +63,17 @@ export function SectionHeading({
 }) {
   const centered = align === "center";
   return (
-    <div className={centered ? "mx-auto max-w-2xl text-center" : "max-w-3xl"}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={centered ? "mx-auto max-w-2xl text-center" : "max-w-3xl"}
+    >
       {kicker && <p className="yanol-kicker">{kicker}</p>}
       <h2 className="yanol-section-title">{title}</h2>
       {description && <p className="yanol-section-desc">{description}</p>}
-    </div>
+    </motion.div>
   );
 }
 
@@ -79,11 +93,17 @@ export function PastelCard({
   className?: string;
 }) {
   return (
-    <article className={`yanol-pastel-card yanol-pastel-${tone} ${className}`}>
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className={`yanol-pastel-card yanol-pastel-${tone} ${className}`}
+    >
       {kicker && <p className="yanol-card-kicker">{kicker}</p>}
       {title && <h3 className="yanol-card-title">{title}</h3>}
       <div className="yanol-card-body">{children}</div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -117,13 +137,19 @@ export function FeatureCard({
   description: string;
 }) {
   return (
-    <article className="yanol-feature-card">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="yanol-feature-card"
+    >
       <div className="yanol-feature-icon">
         <Icon className="h-5 w-5 text-[var(--teal-600)]" aria-hidden />
       </div>
       <h3 className="text-lg font-bold text-[var(--ink)]">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)]">{description}</p>
-    </article>
+    </motion.article>
   );
 }
 
@@ -141,7 +167,13 @@ export function ConnectCta({
   buttonLabel?: string;
 }) {
   return (
-    <section className="yanol-section">
+    <motion.section
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="yanol-section"
+    >
       <div className="yanol-container">
         <div className="yanol-connect-cta">
           <p className="yanol-kicker">{kicker}</p>
@@ -153,7 +185,7 @@ export function ConnectCta({
           </Link>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -167,7 +199,13 @@ export function TealMetricsBand({
   stats: { value: string; label: string }[];
 }) {
   return (
-    <section className="yanol-section">
+    <motion.section
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="yanol-section"
+    >
       <div className="yanol-container">
         <div className="yanol-teal-band">
           <div className="yanol-teal-band-copy">
@@ -187,7 +225,7 @@ export function TealMetricsBand({
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

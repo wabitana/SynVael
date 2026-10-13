@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { teamMembers, type TeamMember } from "@/lib/team";
+import { motion } from "framer-motion";
 
 const filters = [
   { id: "all", label: "Everyone", count: teamMembers.length },
@@ -33,7 +34,13 @@ export function TeamDirectory() {
   const selected = teamMembers.find((m) => m.id === selectedId) ?? null;
 
   return (
-    <section className="yanol-team-panel">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="yanol-team-panel"
+    >
       <div className="yanol-container space-y-8 pb-16">
         <div className="flex flex-col items-center gap-4">
           <div className="yanol-toggle-group" role="tablist" aria-label="Team view">
@@ -157,7 +164,7 @@ export function TeamDirectory() {
           </article>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }
 

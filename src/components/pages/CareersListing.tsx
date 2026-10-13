@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Briefcase } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const categories = [
   { id: "all", label: "View all" },
@@ -17,7 +18,13 @@ export function CareersListing() {
   const [active, setActive] = useState<(typeof categories)[number]["id"]>("all");
 
   return (
-    <section className="yanol-section pt-0">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="yanol-section pt-0"
+    >
       <div className="yanol-container">
         <div className="flex flex-wrap gap-2">
           {categories.map((c) => (
@@ -45,6 +52,6 @@ export function CareersListing() {
           </Link>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

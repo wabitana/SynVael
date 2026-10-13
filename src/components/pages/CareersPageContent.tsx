@@ -1,3 +1,5 @@
+"use client";
+
 import { Briefcase } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ConnectCta, PageIntro } from "@/components/pages/primitives";

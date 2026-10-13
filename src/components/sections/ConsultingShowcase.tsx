@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface ConsultingShowcaseProps {
   kicker?: string;
@@ -16,7 +19,13 @@ export function ConsultingShowcase({
   imageSrc = "/images/mobile_app_mockups.jpg",
 }: ConsultingShowcaseProps) {
   return (
-    <section className="w-full py-12 md:py-20 bg-[#f7f3ee]">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full py-12 md:py-20 bg-[#f7f3ee]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Showcase Container */}
         <div className="relative w-full rounded-[32px] overflow-hidden bg-[#1ad1a5] p-6 sm:p-10 md:p-14 shadow-sm border border-black/5 min-h-[420px] sm:min-h-[500px] flex flex-col justify-between">
@@ -32,7 +41,13 @@ export function ConsultingShowcase({
           </div>
 
           {/* Floating Info Card (Bottom Left) */}
-          <div className="relative md:absolute md:bottom-8 md:left-8 z-20 mt-6 md:mt-0 max-w-md w-full bg-white/95 backdrop-blur-xs rounded-2xl p-6 sm:p-7 shadow-2xl border border-black/5 transform transition-all duration-300 hover:shadow-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+            className="relative md:absolute md:bottom-8 md:left-8 z-20 mt-6 md:mt-0 max-w-md w-full bg-white/95 backdrop-blur-xs rounded-2xl p-6 sm:p-7 shadow-2xl border border-black/5 transform transition-all duration-300 hover:shadow-3xl"
+          >
             <span className="text-[11px] font-bold tracking-widest text-[#717886] uppercase mb-2 block">
               {kicker}
             </span>
@@ -45,9 +60,9 @@ export function ConsultingShowcase({
             <span className="text-xs font-bold text-[#0f86a1] tracking-wider block">
               {number}
             </span>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

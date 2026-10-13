@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X, Sparkles } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -11,6 +11,7 @@ import {
   navSecondary,
   siteConfig,
 } from "@/lib/site";
+import { LanguageSelector } from "@/components/layout/LanguageSelector";
 
 export function Header() {
   const pathname = usePathname();
@@ -64,9 +65,18 @@ export function Header() {
 
         {/* Navigation Links */}
         <nav
-          className="hidden items-center gap-3.5 xl:gap-4 2xl:gap-5 xl:flex"
+          className="hidden items-center gap-3 xl:gap-3.5 2xl:gap-4.5 xl:flex"
           aria-label="Main navigation"
         >
+          {!isHome && (
+            <Link
+              href="/"
+              className={linkClass("/")}
+              onClick={() => setAboutOpen(false)}
+            >
+              Home
+            </Link>
+          )}
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -121,20 +131,7 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <button
-            type="button"
-            className="inline-flex items-center gap-1 border-0 bg-transparent p-0"
-            aria-label="Open language selector"
-          >
-            <Image
-              src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/gb.svg"
-              alt=""
-              width={20}
-              height={15}
-              className="rounded-sm"
-            />
-            <ChevronDown className={`h-3.5 w-3.5 ${isHome ? "text-white" : "text-[var(--ink)]"}`} />
-          </button>
+          <LanguageSelector isHome={isHome} />
           <Link
             href="/contact"
             className={
@@ -173,6 +170,17 @@ export function Header() {
           aria-label="Mobile navigation"
         >
           <ul className="flex flex-col gap-3">
+            {!isHome && (
+              <li>
+                <Link
+                  href="/"
+                  className="block py-1 text-sm font-semibold uppercase tracking-wider yanol-nav-link"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Home
+                </Link>
+              </li>
+            )}
             {[...navLinks, ...aboutLinks, ...navSecondary].map((link) => (
               <li key={link.href}>
                 <Link
@@ -186,6 +194,9 @@ export function Header() {
                 </Link>
               </li>
             ))}
+            <li className="py-1">
+              <LanguageSelector isHome={isHome} isMobile />
+            </li>
             <li>
               <Link
                 href="/contact"
