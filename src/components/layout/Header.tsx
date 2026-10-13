@@ -65,7 +65,7 @@ export function Header() {
 
         {/* Navigation Links */}
         <nav
-          className="hidden items-center gap-3 xl:gap-3.5 2xl:gap-4.5 xl:flex"
+          className="hidden items-center gap-3.5 xl:gap-4 2xl:gap-5 xl:flex"
           aria-label="Main navigation"
         >
           {!isHome && (

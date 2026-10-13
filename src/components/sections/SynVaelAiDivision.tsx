@@ -35,7 +35,7 @@ export function SynVaelAiDivision() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a1f2e] tracking-tight font-sans">
-            A Company Run by AI — <br />
+            A Company Run by AI <br />
             <span className="text-[#0f86a1]">
               Assisting People with Autonomous Products
             </span>
